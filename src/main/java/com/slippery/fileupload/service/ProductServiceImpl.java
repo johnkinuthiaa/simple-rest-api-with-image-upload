@@ -24,7 +24,6 @@ public class ProductServiceImpl implements ProductService{
 
         return repository.save(productDetails);
     }
-
     @Override
     public Product updateProduct(Product productDetails,Long id) {
         Optional<Product> existing =repository.findById(id);
