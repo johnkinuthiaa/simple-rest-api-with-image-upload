@@ -40,7 +40,6 @@ public class ProductServiceImpl implements ProductService{
     public Product getProduct(Long id) {
         return repository.findById(id).orElseThrow();
     }
-
     @Override
     public List<Product> getAllProducts() {
         return repository.findAll();
