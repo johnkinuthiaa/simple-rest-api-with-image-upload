@@ -3,7 +3,9 @@ package com.slippery.fileupload.service;
 import com.slippery.fileupload.models.Product;
 import com.slippery.fileupload.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +17,11 @@ public class ProductServiceImpl implements ProductService{
         this.repository=repository;
     }
     @Override
-    public Product createNewProduct(Product productDetails) {
+    public Product createNewProduct(Product productDetails, MultipartFile imageFIle) throws IOException {
+        productDetails.setImage(imageFIle.getBytes());
+        productDetails.setImageName(imageFIle.getOriginalFilename());
+        productDetails.setImageTYpe(imageFIle.getContentType());
+
         return repository.save(productDetails);
     }
 
