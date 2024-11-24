@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
         this.repository=repository;
     }
     @Override
-    public Product createNewProduct(Product productDetails, MultipartFile imageFIle) throws IOException {
+    // public Product createNewProduct(Product productDetails, MultipartFile imageFIle) throws IOException {
         productDetails.setImage(imageFIle.getBytes());
         productDetails.setImageName(imageFIle.getOriginalFilename());
         productDetails.setImageTYpe(imageFIle.getContentType());
